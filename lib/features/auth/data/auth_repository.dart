@@ -12,7 +12,7 @@ class AuthRepository {
 
   Future<String> login(String email, String password) async {
     if (kMockDemoMode) {
-      if (email == 'test000' && password == 'test000') {
+      if (email == 'test000@test.com' && password == 'test000') {
         return 'mock_token_123';
       } else {
         throw DioException(
@@ -20,7 +20,7 @@ class AuthRepository {
           response: Response(
             requestOptions: RequestOptions(path: '/auth/token'),
             statusCode: 401,
-            data: {'detail': 'Invalid credentials. Use test000 / test000.'},
+            data: {'detail': 'Invalid credentials. Use test000@test.com / test000.'},
           ),
         );
       }
@@ -53,7 +53,7 @@ class AuthRepository {
     if (kMockDemoMode) {
       return const User(
         id: 123,
-        email: 'test000',
+        email: 'test000@test.com',
         fullName: 'Test User',
       );
     }
