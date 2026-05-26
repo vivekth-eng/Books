@@ -1,0 +1,55 @@
+# 📱 Wireframes & UI Mapping
+
+> **Source of Truth:** `lib/v4_prototype.dart`
+> **Design Goal:** Breaking the Monolith into Feature Modules.
+
+## 1. Component Map
+
+| V4 Component | New Widget File | Responsibility |
+| :--- | :--- | :--- |
+| `V4NavigationDrawer` | `lib/features/todo/presentation/widgets/nav_drawer/app_drawer.dart` | The main side menu. |
+| `_drawerItem` | `lib/features/todo/presentation/widgets/nav_drawer/drawer_item.dart` | Reusable drawer tile with selection logic. |
+| `V4TodoList` | `lib/features/todo/presentation/screens/todo_list_screen.dart` | The main list view handling specific filters. |
+| `TodoTile` | `lib/features/todo/presentation/widgets/todo_tile.dart` | Individual task row with Checkbox and Star. |
+| `_showAddTaskModal` | `lib/features/todo/presentation/widgets/add_task_sheet.dart` | Bottom sheet for creating tasks. |
+| `V4PrototypeShell` | `lib/features/home/presentation/screens/home_shell.dart` | Scaffold, AppBar, and FAB orchestration. |
+
+## 2. UI States & Adjustments
+
+### A. The "Anti-Procrastination" Warning
+**Trigger:** User attempts to start the 6th "CRITICAL" task.
+**UI Element:** `SnackBar` (Transient) or `AlertDialog` (Blocking).
+
+**Design:**
+```text
+[ ! ] Capacity Reached
+You have 5 Critical tasks active. Complete one before adding more.
+[ OK ]
+```
+*Note: This error will be returned by the 'validate_task_creation' Edge Function (HTTP 400).*
+
+### B. The "Stale Task" Indicator
+**Trigger:** Task is `STALE` (overdue > 7 days).
+**UI Element:** Visual styling on `TodoTile`.
+
+**Design:**
+- **Text Color:** Greyed out (Opacity 0.6).
+- **Badge:** Small label "STALE" next to the date.
+- **Action:** Suggests archiving or rescheduling.
+
+### C. The Navigation Drawer
+**Structure:**
+- **Header:** "Pro Suite V4" + "Sync Status" (Green Dot for Realtime).
+- **Smart Lists:**
+    - ☀️ My Day (Filter: `isMyDay`)
+    - ⭐ Important (Filter: `isImportant`)
+    - 📋 All Tasks (Filter: `all`)
+- **Divider**
+- **Personal Lists:** (Dynamic from DB in later versions, static for MVP).
+
+## 3. Theme & Aesthetics
+- **Color Palette:**
+    - Primary: Blue Accent (from V4).
+    - Importance: Amber (Stars).
+    - Critical: Red (Priority badges).
+- **Typography:** Standard Flutter Material.

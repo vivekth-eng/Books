@@ -1,0 +1,68 @@
+{
+  "scenarios": {
+    "anti_procrastination_test": [
+      {
+        "id": "uuid-critical-1",
+        "title": "Critical Task 1",
+        "priority": "CRITICAL",
+        "is_complete": false,
+        "is_important": true
+      },
+      {
+        "id": "uuid-critical-2",
+        "title": "Critical Task 2",
+        "priority": "CRITICAL",
+        "is_complete": false,
+        "is_important": true
+      },
+      {
+        "id": "uuid-critical-3",
+        "title": "Critical Task 3",
+        "priority": "CRITICAL",
+        "is_complete": false,
+        "is_important": true
+      },
+      {
+        "id": "uuid-critical-4",
+        "title": "Critical Task 4",
+        "priority": "CRITICAL",
+        "is_complete": false,
+        "is_important": true
+      },
+      {
+        "id": "uuid-critical-5",
+        "title": "Critical Task 5",
+        "priority": "CRITICAL",
+        "is_complete": false,
+        "is_important": true
+      },
+      {
+        "id": "uuid-critical-6-fail",
+        "title": "The Straw That Breaks The Camel's Back",
+        "priority": "CRITICAL",
+        "is_complete": false,
+        "is_important": true,
+        "expected_result": "400 Bad Request error: 'Capacity Reached'"
+      }
+    ],
+    "stale_task_test": [
+      {
+        "id": "uuid-stale-1",
+        "title": "Ancient Task",
+        "priority": "MEDIUM",
+        "is_complete": false,
+        "due_date": "2023-01-01T00:00:00Z",
+        "expected_action": "Downgrade to LOW priority by Cron"
+      }
+    ],
+    "valid_ops": [
+      {
+        "id": "uuid-normal-1",
+        "title": "Regular Task",
+        "priority": "MEDIUM",
+        "is_complete": false,
+        "is_important": false
+      }
+    ]
+  }
+}

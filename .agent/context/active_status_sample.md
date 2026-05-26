@@ -1,0 +1,155 @@
+# Project Active Status
+
+## Current Phase: 🏗️ Foundation & Data Ingestion
+- [x] Create PostgreSQL `movie_database`
+- [x] Configure Google Stitch MCP Proxy
+- [x] Synchronize 3-Tier Infrastructure (WSL-Native Bridge)
+- [x] Define SQLModel Schema (Movie + Genre)
+- [x] Ingest Excel data to PostgreSQL (1738 Records)
+- [x] Restore & Bridge 1712 posters (WSL-Native Mount)
+- [x] Integrate `movies_update.xlsx` (47 new/updated records)
+- [x] Synchronize new posters to WSL `movie_assets/posters` via Docker Ingestion Script
+- [x] Verify UI-Sync (Flutter): Confirmed 2025/2026 records render with assets
+- [x] Connect Stitch UI to Flutter Models (Riverpod)
+- [x] Restore Multi-Genre Visibility (Full-Stack: DB Audit, API computed_field, UI Wrap tags)
+- [x] Sprint A: Image Optimization (FastAPI: CachedStaticFiles subclass, Headers: Cache-Control public/immutable)
+- [x] Sprint B: Smart Folders (Disk/Genre) (Full-Stack: Metadata Counts, Count-aware Sidebar Chips)
+- [x] Resolved Sprint B Type Mismatch (Surgical Alignment across 3 tiers)
+- [x] Sprint C: Interactive UX (Hover/Long-Press) (Full-Stack: Scale Effects, Watchlist Toggle Action, DB Migration)
+- [x] Sprint D: Smart Lists (Watchlist Toggle) (Full-Stack: Global Filter Toggle, SegmentedButton UI, PostgreSQL-side Filtering)
+- [x] Sprint E: Smart Lists Persistence (Watchlist State Persistence via SharedPreferences)
+- [x] Sprint F: Smart Ratings Engine (Full-Stack: Dynamic Rating Slider, DB-side Rating Filtering)
+- [x] Established Watchlist Navigation Standards Blueprint (Zero-State & Persistence Rules)
+- [x] Established Type Safety Standards Blueprint (MANDATORY build_runner on model change)
+- [x] Hierarchical Blueprint Governance (Created /global and /project silos)
+- [x] Transition to Master File Ingestion (Git Branch: `features/master_file_ingestion`)
+- [x] Master Data Refresh (Wipe & Sync: 1,745 Unique Records aligned with `movies_master.xlsx`)
+- [x] Established Master File Governance Blueprint (SDR-standard Ingestion Protocol)
+- [x] Resolved "Black Card" Asset serving (Standardized Suffix Detection, DB Path Audit)
+- [x] Established Media Serving Standards Blueprint (Full URL Rule & Volume Lock)
+- [x] Hardened Movie Model for Null Safety (Surgical Repair for Null Numeric Types)
+- [x] Established Null Safety Standards Blueprint (Safe Default & Backend Guard Rules)
+- [x] Reconciled Special Character Posters (ASCII Normalization: Pokémon, [Rec], Les Misérables)
+- [x] Reconciled Punctuation Filenames (Underscore Delimiter & Double-Underscore Cleanup: Don't Breathe)
+- [x] Sprint G: Batch Metadata Cleanup (Full-Stack: Standardized Genre tags, Stripped whitespace for 1,745 records)
+- [x] Sprint H: Dynamic Search (Real-time debounced title search in AppBar)
+- [x] Sprint I: Vector Search Engine (Local AI Conceptual Discovery)
+- [x] Migrated to `pgvector/pgvector:pg16` (Engine Swapped)
+- [x] Initialized vector(384) column & vector extension (Tier 3 Handshake)
+- [x] Tier 2: AI Backend Built (~1GB Torch/Transformers loaded lazily)
+- [x] Enforced Hardware Safety (3GB WSL Ceiling established in .wslconfig)
+- [x] Handshake Verified: Numpy pgvector serialization resolved, `National Treasure` successfully matches `treasure hunt`.
+- [x] Phase v1.2: Semantic Discovery (Fully Complete)
+- [x] Sprint J: Poster Path Reconciliation (Full-Stack: Resolved Mount Mismatch, Reconciled 1,774 records)
+- [x] Sprint K: Full Library Hydration (100% Coverage: 1,774 Posters + 1,774 Cloud Vectors)
+- [x] Integrity Handshake: Verified 3-Tier Health (API < 350ms for full library fetch)
+- [x] **Phase v1.3: User Analytics & Watchlist Insights** [COMPLETED] - Aggregated metrics and charts live.
+- [x] **Phase v1.4: TMDB Integration Bridge** [COMPLETED] - Full library metadata sync finished (1,769/1,774 enriched).
+- [x] **Phase v1.5: Semantic Feature Alignment** [COMPLETED] - Re-vectorized 1,769 records for cast-aware search.
+- [x] **Phase v1.6: Advanced Filtering** [COMPLETED] - Reactive sidebar filters for Director and Cast live.
+- [x] **Phase v1.7: Enhanced Sorting** [COMPLETED] - Dynamic sorting by Title, Year, Rating, and Recency live.
+- [x] **Phase v1.8: Data Tier Extraction** [COMPLETED] - Generated `movies_dump.sql` and `movie_posters.tar` for migration.
+- [x] **Phase v1.9: Enterprise Foundation (Frontend)** [COMPLETED] - JWT Auth + Login UI + Persistence Ready.
+- [x] Grid Connectivity Repair (Backend Columns + CORS + .env loopback)
+- [x] Asset Handshake Verification (Mounted movie_assets/posters to /app/assets/posters)
+- [x] **Phase v2.0: UI/UX Production Refinement** [COMPLETED]
+    - [x] Filter Sidebar: Release Year reorder + Searchable ExpansionTiles
+    - [x] Movie Card: Persistent Rating/Disk info + Genre Wrap footer
+    - [x] Hover Overlay: Integrated Movie Description mapping
+- [x] **Phase v2.1: Semantic & Visual Integrity Sync** [COMPLETED]
+    - [x] Backend: Absolute poster URL hydration implemented
+    - [x] Frontend: Modular SemanticSearchBar with API Key guard
+    - [x] 3-Tier: Hardened data models and removed redundant URL prepending
+- [x] **Phase v2.2: Infrastructure & Portability** [COMPLETED]
+    - [x] Established System Portability Blueprint (`/.agent/blueprints/system_migration.md`)
+    - [x] Implemented Git Integrity Skill (`/.agent/skills/git_integrity/`)
+    - [x] Formalized "Retrieve Protocol" for hardware migration safety.
+- [x] **Phase v2.3: Per-User Personalization & 3-Tier Hardening** [COMPLETED]
+    - [x] Backend: Refactor `get_movies` to join with `Watchlist` for per-user state.
+    - [x] Backend: SQL Migration to remove global `is_watchlist` from `movie` table.
+    - [x] Frontend: Synchronize models and repositories for authenticated watchlist state.
+    - [x] Frontend: Lint Cleanup (Address significant issues identified in `flutter analyze`).
+- [x] **Phase v2.4: UX Polish & Performance Optimization** [COMPLETED]
+    - [x] Design: Implemented High-Contrast "Cinema" Theme (Deep Charcoal + Electric Violet).
+    - [x] Sidebar: Collapsible sections with frequency-based sorting and "Show More" logic.
+    - [x] Pagination: Fixed scroll jumping; implemented seamless 80% threshold infinite scroll.
+    - [x] Optimization: Lazy-cached image rendering and paged state management.
+- [x] **Phase v2.5: Semantic Re-indexing & Vector Calibration** [COMPLETED]
+    - [x] Database Audit: Confirmed 0 null embeddings after re-indexing 1,781 records.
+    - [x] Re-indexing: Executed `reindex_movies.py` with cast-aware metadata (Director + Actors).
+    - [x] Validation: Confirmed semantic search accuracy (e.g., "Christopher Nolan" matches his films).
+- [x] **Phase v2.6: Project Grooming & Technical Debt Liquidation** [COMPLETED]
+    - [x] Git: Resolved D/F naming conflict and bypassed large-file history via `feature-unified-dashboard-final`.
+    - [x] Frontend: Removed redundant scripts and satisfied linting via `dart fix`.
+    - [x] Backend: Purged ~65 temporary/audit scripts and experimental logs.
+    - [x] Resources: Hardened memory governance with 5-min AI watchdog verified.
+    - [x] Optimization: Implemented `.dockerignore` and slimmed `requirements.txt`.
+    - [x] Documentation: Upgraded README.md with Unified Dashboard features.
+- [x] **Phase v2.7: Advanced UX Transitions & Glassmorphism** [COMPLETED]
+    - [x] UI Refinement: Implemented glassmorphic AppBar and Drawer using BackdropFilter.
+    - [x] Transitions: Added Hero tag placeholder logic for Poster image transitions to Details.
+    - [x] Feedback: Implemented platform-safe Haptic Feedback for filter clicks and watchlist toggles.
+- [ ] **Phase v3.0: Cinematic Movie Details (Modern Overlay)** [IN PROGRESS]
+    - [x] UI Layout: Created glassmorphic `MovieDetailsModal` bottom sheet.
+    - [x] Transitions: Linked Grid Poster to Details Poster via Hero tags.
+    - [x] Navigation: Enabled modal launch on MovieCard tap with haptic feedback.
+    - [x] Action: Implemented prominent "Add to Watchlist" toggle within the Details view with real-time feedback.
+    - [x] Maintenance: Resolved `MovieGridScreen` assertion failure by moving `color` into `BoxDecoration`.
+    - [x] Audit: Verified all glassmorphic components for decoration/color conflicts.
+- [x] **Phase v3.1: Technical Formalization & Skill Library** [COMPLETED]
+    - [x] Formalized `local_cuda_semantic_search` skill with GPU memory governance rules.
+    - [x] Formalized `glassmorphic_ui_framework` skill with decoration assertion guards.
+    - [x] Formalized `shared_element_hit_testing` skill for complex gesture resolution.
+    - [x] Formalized `collapsible_sidebar_management` skill for reactive state persistence.
+    - [x] Cross-referenced skill library in Project Manager and Builder workflows.
+- [x] **Phase v3.2: Resource Governance & 16GB RAM Hardening** [COMPLETED]
+    - [x] Monitoring: Updated `monitoring.md` with 16GB threshold alerts (Docker + Chrome + Ollama).
+    - [x] Policy: Integrated memory latency guards into `monitoring_policy.md`.
+    - [x] Architect: Prioritized Static Analysis over Runtime Testing during active inference in `operational_standards.md`.
+    - [x] Governance: Formalized VRAM and RAM headroom management in `governance.md`.
+    - [x] Environment: Confirmed `OLLAMA_KEEP_ALIVE=1m` for prompt cleanup.
+## Current Phase: 🚀 Native Windows 11 Performance Stack
+- [x] Foundation & Data Ingestion (Legacy Environment)
+- [x] Native Windows 11 Transition (100% Native Standard Enforced)
+- [x] Legacy Purge: Removed all Docker/WSL artifacts
+- [x] Script Refactoring: Standardized all backend paths to native Windows structure
+- [x] Rule Calibration: Updated `inventory.md`, `deployment_architecture.md`, `environment_cleanup.md`
+- [x] Roadmap Re-alignment: Set "Hybrid Search (pgvector)" as next priority
+- [x] Environment Setup: Initialized native Windows `.venv` and satisfied all backend requirements
+- [x] Backend Restore: Native FastAPI service restored and verified on Port 8001 (Health Handshake: PASS)
+- [x] Frontend Sync: Synchronized Port 8001 across all UI constants and auth providers (3-Tier Bridge: ACTIVE)
+- [x] **Phase v3.3: Enterprise Persistence & Startup Automation** [COMPLETED]
+    - [x] Infrastructure: Created `run_cinestack.ps1` for autonomous 3-tier startup.
+    - [x] Hardening: Standardized Port 8001 across the full stack.
+    - [x] Reliability: Implemented persistent backend window to survive AI session closure.
+- [x] **Sprint 1: Data Layer & VRAM Guard** [COMPLETED]
+    - [x] Data Layer: Implemented Credit Null-Preservation Guards in `ingest_and_hydrate.py`.
+    - [x] VRAM Guard: Hardened background watchdog in `search_service.py` to clear cache unconditionally when idle.
+    - [x] VRAM Release: Wrapped recommendation execution in `recommender.py` to free CUDA memory synchronously.
+- [x] **Sprint 2: Cloud Re-indexing Rate Limit Recovery & Logging** [COMPLETED]
+    - [x] Ingestion Fail-safe: Refactored indexing loops with individual-record retries upon batch failures.
+    - [x] Error Logging: Implemented logging of failed metadata syncs to `backend/logs/failed_embeddings.log`.
+    - [x] Database Robustness: Avoided `PendingRollbackError` by capturing database attributes in local variables.
+- [x] **Sprint 3: Presentation Gate Refactoring & Import Cleanup** [COMPLETED]
+    - [x] Public Gate: Exposed `MovieDetailsModal` and `MovieGridScreen` in `movie.dart`.
+    - [x] Clean Imports: Updated `oracle_chat_panel.dart`, `semantic_search_bar.dart`, and `main.dart` to use the unified gate.
+    - [x] Verification: Confirmed clean compile and no errors via `flutter analyze`.
+- [x] **Sprint 4: Resolve Oracle UI Stall (Explicit-Teardown & Notifier Pattern)** [COMPLETED]
+    - [x] State Management: Cleaned up UI local state and created `oracle_provider.dart` using Riverpod `Notifier`.
+    - [x] Model Support: Added `isHydrating` flag to `ChatMessage` domain model for message-level state.
+    - [x] Robustness: Wrapped API streaming handler in `try...finally` block to guarantee explicit reset of loading states.
+    - [x] Documentation: Recorded "Explicit-Teardown" and "Visual-State-Parity" in `stability_standards.md`.
+    - [x] Verification: Confirmed successful code generation and compilation via `flutter analyze`.
+- [x] **Sprint 5: Package and Deploy Static Web Showcase Component for 'Library'** [COMPLETED]
+    - [x] Configuration: Added config.dart setting kMockDemoMode to true.
+    - [x] Service: Dynamic image base URL using local relative sub-directory path.
+    - [x] Auth: Auto-login test2@example.com context in AuthController.
+    - [x] Mock: Developed MockInterceptor to bypass API and resolve all endpoints locally.
+    - [x] Repository: Initialized and pushed Library code repository to vivekth-eng/library.
+    - [x] Deploy: Compiled CanvasKit bundle and embedded under Portfolio/library with service worker bypasses.
+- [x] **Sprint 6: Emergency Secret Purge & Path Routing Realignment** [COMPLETED]
+    - [x] Security: Scrubbed hardcoded Google API Key from `generate_embeddings.py`.
+    - [x] Git: Collapsed local repository git history to a single clean commit and force-pushed to origin main, purging historical leaks.
+    - [x] Ignores: Enforced strict ignoring of `.env`, `*.env`, `mcp-settings.json`, `mcp_config.json`, and `/.agent/`.
+    - [x] Compile: Re-compiled with correct subfolder path offset base-href `/Portfolio/library/`.
+    - [x] Handover: Embedded compiled assets under Portfolio/library/ and pushed to unified GitHub Pages trunk.

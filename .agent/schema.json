@@ -1,0 +1,48 @@
+{
+  "tables": {
+    "todos": {
+      "description": "Core task table, mirroring v4_prototype Todo model with added governance fields.",
+      "columns": {
+        "id": { "type": "uuid", "primaryKey": true, "default": "gen_random_uuid()" },
+        "user_id": { "type": "uuid", "foreignKey": "auth.users.id", "nullable": false, "description": "RLS Owner" },
+        "title": { "type": "text", "check": "length(title) >= 3", "nullable": false },
+        "is_complete": { "type": "boolean", "default": false, "description": "Maps to isCompleted" },
+        "is_important": { "type": "boolean", "default": false, "description": "Maps to isImportant" },
+        "is_my_day": { "type": "boolean", "default": false, "description": "Maps to isMyDay" },
+        "list_id": { "type": "text", "nullable": true, "description": "Maps to listId (e.g., 'work-id')" },
+        "due_date": { "type": "timestamptz", "nullable": true, "description": "Maps to dueDate" },
+        "priority": { 
+          "type": "text", 
+          "default": "'LOW'", 
+          "check": "priority IN ('LOW', 'MEDIUM', 'HIGH', 'CRITICAL')",
+          "description": "Governance-added field for Anti-Procrastination Rule"
+        },
+        "last_trace_id": { "type": "uuid", "nullable": true, "description": "The trace_id of the last mutation (for audit)" },
+        "created_at": { "type": "timestamptz", "default": "now()" },
+        "updated_at": { "type": "timestamptz", "default": "now()" }
+      },
+      "indexes": [
+        "user_id",
+        "priority",
+        "is_complete"
+      ],
+      "rls_policies": [
+        { "name": "Enable read for users based on user_id", "using": "auth.uid() = user_id" },
+        { "name": "Enable insert for users based on user_id", "with_check": "auth.uid() = user_id" },
+        { "name": "Enable update for users based on user_id", "using": "auth.uid() = user_id" }
+      ]
+    },
+    "logs": {
+      "description": "Observability and Audit trail for the Watchdog.",
+      "columns": {
+        "id": { "type": "uuid", "primaryKey": true, "default": "gen_random_uuid()" },
+        "trace_id": { "type": "uuid", "nullable": false, "description": "The golden thread linking UI actions to DB writes" },
+        "severity": { "type": "text", "check": "severity IN ('INFO', 'WARNING', 'ERROR', 'CRITICAL')" },
+        "source": { "type": "text", "description": "e.g., 'flutter_client', 'edge_function:validate_task'" },
+        "message": { "type": "text" },
+        "metadata": { "type": "jsonb", "nullable": true },
+        "created_at": { "type": "timestamptz", "default": "now()" }
+      }
+    }
+  }
+}
