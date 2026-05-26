@@ -63,7 +63,7 @@ class BookCard extends ConsumerWidget {
                     tag: 'cover_${book.id}',
                     child: hasCover
                         ? Image.network(
-                            'http://127.0.0.1:8000/static/covers/$coverName',
+                            book.fullCoverPath,
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) => _buildFallbackCard(context),
                           )

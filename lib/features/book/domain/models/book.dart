@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:libri_stack/core/config.dart';
 
 part 'book.freezed.dart';
 part 'book.g.dart';
@@ -34,6 +35,9 @@ class Book with _$Book {
   String get fullCoverPath {
     if (coverUrl == null || coverUrl!.isEmpty) return '';
     if (coverUrl!.startsWith('http')) return coverUrl!;
+    if (kMockDemoMode) {
+      return 'assets/assets/covers/${coverUrl!.startsWith('/') ? coverUrl!.substring(1) : coverUrl!}';
+    }
     // Locally served from FastAPI backend on Port 8000 static route /static/covers/
     return 'http://localhost:8000/static/covers/${coverUrl!.startsWith('/') ? coverUrl!.substring(1) : coverUrl!}';
   }

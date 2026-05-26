@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:dio/dio.dart';
+import 'package:libri_stack/core/config.dart';
 import 'package:libri_stack/core/providers/core_providers.dart';
 import 'package:libri_stack/features/auth/domain/user.dart';
 
@@ -10,6 +11,20 @@ class AuthRepository {
   final Dio dio;
 
   Future<String> login(String email, String password) async {
+    if (kMockDemoMode) {
+      if (email == 'test123@example.com' && password == 'test123') {
+        return 'mock_token_123';
+      } else {
+        throw DioException(
+          requestOptions: RequestOptions(path: '/auth/token'),
+          response: Response(
+            requestOptions: RequestOptions(path: '/auth/token'),
+            statusCode: 401,
+            data: {'detail': 'Invalid email or password. Use test123@example.com / test123.'},
+          ),
+        );
+      }
+    }
     final response = await dio.post(
       '/auth/token',
       data: FormData.fromMap({
@@ -21,6 +36,9 @@ class AuthRepository {
   }
 
   Future<void> register(String email, String password, String? fullName) async {
+    if (kMockDemoMode) {
+      return;
+    }
     await dio.post(
       '/auth/register',
       data: {
@@ -32,6 +50,13 @@ class AuthRepository {
   }
 
   Future<User> getCurrentUser() async {
+    if (kMockDemoMode) {
+      return const User(
+        id: 123,
+        email: 'test123@example.com',
+        fullName: 'Test User',
+      );
+    }
     final response = await dio.get('/users/me');
     return User.fromJson(response.data);
   }
