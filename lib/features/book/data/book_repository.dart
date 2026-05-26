@@ -318,7 +318,7 @@ class BookRepository {
         counts[b.publisher] = (counts[b.publisher] ?? 0) + 1;
       }
       return counts.entries
-          .map((e) => {'publisher': e.key, 'count': e.value})
+          .map((e) => {'name': e.key, 'count': e.value})
           .toList();
     }
     final response = await _dio.get('/publishers');
